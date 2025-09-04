@@ -1179,10 +1179,6 @@ _NODE_LIVE_FIELDS = {
   "dtotal": ("DTotal", QFT_UNIT, "storage_size",
              "Total storage space in storage unit used for instance disk"
              " allocation"),
-  "export_dtotal": ("ExpDToal", QFT_UNIT, "export_total",
-                    "Total storage space on /var/lib/ganeti/exports"),
-  "export_dfree": ("ExpDFree", QFT_UNIT, "export_free",
-                   "Available storage space on /var/lib/ganeti/exports"),
   "spfree": ("SpFree", QFT_NUMBER, "spindles_free",
              "Available spindles in volume group (exclusive storage only)"),
   "sptotal": ("SpTotal", QFT_NUMBER, "spindles_total",
@@ -2706,11 +2702,11 @@ def _BuildExportFields():
     (_MakeField("export", "Export", QFT_TEXT, "Export name"),
      None, 0, _GetExportName),
     (_MakeField("export_du", "ExpDUsage", QFT_UNIT, "Used size on disk for the export"),
-     IQ_DISKUSAGE, 0, _GetInstDiskUsage),
+     None, 0, lambda _, __: 1),
     (_MakeField("export_dtotal", "ExpDTotal", QFT_UNIT, "Total storage space on /var/lib/ganiti/exports"),
-     IQ_DISKUSAGE, 0, _GetInstDiskUsage),
+     None, 0, lambda _, __: 2),
     (_MakeField("export_dfree", "ExpDFree", QFT_UNIT, "Available storage space on /var/lib/ganiti/exports"),
-     IQ_DISKUSAGE, 0, _GetInstDiskUsage),
+     None, 0, lambda _, __: 3),
     ]
 
   return _PrepareFieldList(fields, [])
