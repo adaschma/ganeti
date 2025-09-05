@@ -85,7 +85,7 @@ nodeLiveFieldsDefs =
      "Amount of memory used by node (dom0 for Xen)")
   , ("mtotal", "MTotal", QFTUnit, "memory_total",
      "Total amount of memory of physical machine")
-  , ("export_dtotal", "EXPDTotal", QFTUnit, "storage_size",
+  , ("export_dtotal", "EXPDTotal", QFTText, "name",
      "Total storage space on /var/lib/ganiti/exports")
   , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
      "Available storage space on /var/lib/ganiti/exports")
@@ -163,6 +163,7 @@ nodeLiveFieldExtract "export_dfree" res =
       (rpcResNodeInfoStorageInfo res))
 nodeLiveFieldExtract _ _ = J.JSNull
 
+getStorageInfoName :: Maybe StorageInfo -> J.JSValue
 getStorageInfoName = getAttrFromStorageInfo storageInfoStorageFree 
 
 -- | Helper for extracting field from RPC result.
