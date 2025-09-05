@@ -70,7 +70,7 @@ exportFields =
   , (FieldDefinition "export" "Export" QFTText "Export name",
      FieldRuntime (curry fst), QffNormal)
   , (FieldDefinition "export_du" "ExpDUsage" QFTText "Use size on disk for export",
-     FieldRuntime (curry fst), QffNormal)
+     FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
   ]
 
 -- | The node fields map.
