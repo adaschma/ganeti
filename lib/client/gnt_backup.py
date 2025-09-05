@@ -42,7 +42,7 @@ from ganeti import errors
 from ganeti import qlang
 
 
-_LIST_DEF_FIELDS = ["node", "export"]
+_LIST_DEF_FIELDS = ["node", "export", "export_du"]
 
 
 def PrintExportList(opts, args):
