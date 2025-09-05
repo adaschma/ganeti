@@ -146,6 +146,9 @@ nodeLiveFieldExtract "mnode" res =
   jsonHead (rpcResNodeInfoHvInfo res) hvInfoMemoryDom0
 nodeLiveFieldExtract "mtotal" res =
   jsonHead (rpcResNodeInfoHvInfo res) hvInfoMemoryTotal
+nodeLiveFieldExtract "export_dfree" res =
+  getAttrFromStorageInfo storageInfoStorageFree (getStorageInfoForDefault
+      (rpcResNodeInfoStorageInfo res))
 nodeLiveFieldExtract _ _ = J.JSNull
 
 -- | Helper for extracting field from RPC result.
