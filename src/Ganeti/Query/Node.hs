@@ -85,7 +85,7 @@ nodeLiveFieldsDefs =
      "Amount of memory used by node (dom0 for Xen)")
   , ("mtotal", "MTotal", QFTUnit, "memory_total",
      "Total amount of memory of physical machine")
-  , ("export_dtotal", "EXPDTotal", QFTText, "mount",
+  , ("export_dtotal", "ExpDTotal", QFTText, "mount",
      "Total storage space on /var/lib/ganiti/exports")
   , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
      "Available storage space on /var/lib/ganiti/exports")
