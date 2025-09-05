@@ -108,6 +108,10 @@ getStorageInfoForDefault :: [StorageInfo] -> Maybe StorageInfo
 getStorageInfoForDefault sinfos = listToMaybe $ filter
     (not . isStorageInfoOfType StorageLvmPv) sinfos
 
+-- | Get storage info for the export/backup storage unit
+getStorageInfoForExports :: [StorageInfo] -> MaybeStorageInfo
+getStorageInfoForExports sinfo = listToMaybe sinfo
+
 -- | Gets the storage info for a storage type
 -- FIXME: This needs to be extended when storage pools are implemented,
 -- because storage types are not necessarily unique then
@@ -147,7 +151,7 @@ nodeLiveFieldExtract "mnode" res =
 nodeLiveFieldExtract "mtotal" res =
   jsonHead (rpcResNodeInfoHvInfo res) hvInfoMemoryTotal
 nodeLiveFieldExtract "export_dfree" res =
-  getAttrFromStorageInfo storageInfoStorageFree (getStorageInfoForDefault
+  getAttrFromStorageInfo storageInfoStorageFree (getStorageInfoForExports
       (rpcResNodeInfoStorageInfo res))
 nodeLiveFieldExtract _ _ = J.JSNull
 
