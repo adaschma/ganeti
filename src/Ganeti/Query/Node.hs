@@ -111,7 +111,10 @@ getStorageInfoForDefault sinfos = listToMaybe $ filter
 -- | Get storage info for the export/backup storage unit
 getStorageInfoForExports :: [StorageInfo] -> Maybe StorageInfo
 getStorageInfoForExports sinfos = listToMaybe $ filter
-    (isStorageInfoOfType StorageLvmPv) sinfos
+    (isStorageWithExports) sinfos
+
+isStorageWithExports:: StorageInfo -> bool
+isStorageWithExports _ = True
 
 -- | Gets the storage info for a storage type
 -- FIXME: This needs to be extended when storage pools are implemented,
