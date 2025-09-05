@@ -2703,7 +2703,6 @@ def _BuildExportFields():
      None, 0, _GetExportName),
     (_MakeField("export_du", "Export", QFT_TEXT, "Export name"),
      None, 0, _GetExportName),
-     NQ_INST, 0, lambda _, __: 1),
     (_MakeField("export_dtotal", "ExpDTotal", QFT_NUMBER,
                 "Total storage space on /var/lib/ganiti/exports"),
      None, 0, lambda _, __: 2),
