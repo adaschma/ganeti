@@ -2701,11 +2701,14 @@ def _BuildExportFields():
      None, QFF_HOSTNAME, lambda _, node_expname: node_expname[0]),
     (_MakeField("export", "Export", QFT_TEXT, "Export name"),
      None, 0, _GetExportName),
-    (_MakeField("export_du", "ExpDUsage", QFT_UNIT, "Used size on disk for the export"),
+    (_MakeField("export_du", "ExpDUsage", QFT_UNIT,
+                "Used size on disk for the export"),
      None, 0, lambda _, __: 1),
-    (_MakeField("export_dtotal", "ExpDTotal", QFT_UNIT, "Total storage space on /var/lib/ganiti/exports"),
+    (_MakeField("export_dtotal", "ExpDTotal", QFT_UNIT,
+                "Total storage space on /var/lib/ganiti/exports"),
      None, 0, lambda _, __: 2),
-    (_MakeField("export_dfree", "ExpDFree", QFT_UNIT, "Available storage space on /var/lib/ganiti/exports"),
+    (_MakeField("export_dfree", "ExpDFree", QFT_UNIT,
+                "Available storage space on /var/lib/ganiti/exports"),
      None, 0, lambda _, __: 3),
     ]
 
