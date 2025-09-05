@@ -653,9 +653,9 @@ def _GetVgInfo(
   return {
     "type": constants.ST_LVM_VG,
     "name": name,
-    "mount": "hello",
     "storage_free": vg_free,
     "storage_size": vg_size,
+    "mount": "hello",
     }
 
 

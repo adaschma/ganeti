@@ -538,9 +538,9 @@ $(buildObject "RpcCallNodeInfo" "rpcCallNodeInfo"
 $(buildObject "StorageInfo" "storageInfo"
   [ simpleField "name" [t| String |]
   , simpleField "type" [t| String |]
-  , simpleField "mount" [t| String |]
   , optionalField $ simpleField "storage_free" [t| Int |]
   , optionalField $ simpleField "storage_size" [t| Int |]
+  , optionalField $ simpleField "mount" [t| String |]
   ])
 
 -- | Common fields (as described in hv_base.py) are mandatory,
