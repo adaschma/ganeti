@@ -113,7 +113,7 @@ getStorageInfoForExports :: [StorageInfo] -> Maybe StorageInfo
 getStorageInfoForExports sinfos = listToMaybe $ filter
     (isStorageWithExports) sinfos
 
-isStorageWithExports:: StorageInfo -> bool
+isStorageWithExports:: StorageInfo -> Bool
 isStorageWithExports _ = True
 
 -- | Gets the storage info for a storage type
