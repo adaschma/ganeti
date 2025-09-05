@@ -85,6 +85,8 @@ nodeLiveFieldsDefs =
      "Amount of memory used by node (dom0 for Xen)")
   , ("mtotal", "MTotal", QFTUnit, "memory_total",
      "Total amount of memory of physical machine")
+  , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
+     "Available storage space on /var/lib/ganiti/exports")
   ]
 
 -- | Helper function to extract an attribute from a maybe StorageType

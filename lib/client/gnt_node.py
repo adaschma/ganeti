@@ -59,6 +59,7 @@ _LIST_DEF_FIELDS = [
   "name", "dtotal", "dfree",
   "mtotal", "mnode", "mfree",
   "pinst_cnt", "sinst_cnt",
+  "export_dfree",
   ]
 
 
