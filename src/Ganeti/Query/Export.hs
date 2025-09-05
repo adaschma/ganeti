@@ -73,6 +73,8 @@ exportFields =
      FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
   , (FieldDefinition "export_dtotal" "ExpDTotal" QFTText "Total storage space on /var/lib/ganiti/exports",
      FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
+  , (FieldDefinition "export_dfree" "ExpDFree" QFTNumber "Available storage space on /var/lib/ganiti/exports",
+     FieldRuntime (\_ n -> rsNormal $ 42), QffHostname)
   ]
 
 -- | The node fields map.
