@@ -165,7 +165,7 @@ nodeLiveFieldExtract "export_dfree" res =
 nodeLiveFieldExtract _ _ = J.JSNull
 
 getStorageInfoName :: Maybe StorageInfo -> J.JSValue
-getStorageInfoName = getAttrFromStorageInfo (\n -> Just $ J.toJSString storageInfoName)
+getStorageInfoName = getAttrFromStorageInfo (\n -> Just $ J.toJSString $ storageInfoName n)
 
 -- | Helper for extracting field from RPC result.
 nodeLiveRpcCall :: FieldName -> Runtime -> Node -> ResultEntry
