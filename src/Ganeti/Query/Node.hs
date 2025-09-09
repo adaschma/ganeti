@@ -53,6 +53,7 @@ import Ganeti.Query.Common
 import Ganeti.Query.Types
 import Ganeti.Storage.Utils
 import Ganeti.Utils (niceSort)
+import Ganeti.Constants (backupDir)
 
 -- | Runtime is the resulting type for NodeInfo call.
 type Runtime = Either RpcError RpcResultNodeInfo
@@ -85,10 +86,10 @@ nodeLiveFieldsDefs =
      "Amount of memory used by node (dom0 for Xen)")
   , ("mtotal", "MTotal", QFTUnit, "memory_total",
      "Total amount of memory of physical machine")
-  , ("export_dtotal", "ExpDTotal", QFTText, "mount",
-     "Total storage space on /var/lib/ganiti/exports")
+  , ("export_dtotal", "ExpDTotal", QFTUnit, "export_dtotal",
+     $"Total storage space on " ++ backupDir)
   , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
-     "Available storage space on /var/lib/ganiti/exports")
+     "Available storage space on " ++ backupDir)
   ]
 
 -- | Helper function to extract an attribute from a maybe StorageType
@@ -115,8 +116,8 @@ getStorageInfoForExports :: [StorageInfo] -> Maybe StorageInfo
 getStorageInfoForExports sinfos = listToMaybe $ filter
     (isStorageWithExports) sinfos
 
-isStorageWithExports:: StorageInfo -> Bool
-isStorageWithExports _ = True
+isStorageWithExports :: StorageInfo -> Bool
+isStorageWithExports s = storageInfoName s == backupDir
 
 -- | Gets the storage info for a storage type
 -- FIXME: This needs to be extended when storage pools are implemented,

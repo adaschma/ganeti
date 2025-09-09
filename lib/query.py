@@ -2704,11 +2704,11 @@ def _BuildExportFields():
     (_MakeField("export_du", "ExpDUsage", QFT_TEXT,
                 "Use size on disk for export"),
      None, 0, _GetExportName),
-    (_MakeField("export_dtotal", "ExpDTotal", QFT_TEXT,
-                "Total storage space on /var/lib/ganiti/exports"),
+    (_MakeField("export_dtotal", "ExpDTotal", QFT_UNIT,
+                f"Total storage space on {backupDir}"),
      None, 0, lambda _, __: 2),
-    (_MakeField("export_dfree", "ExpDFree", QFT_NUMBER,
-                "Available storage space on /var/lib/ganiti/exports"),
+    (_MakeField("export_dfree", "ExpDFree", QFT_UNIT,
+                f"Available storage space on {backupDir}"),
      None, 0, lambda _, __: 3),
     ]
 

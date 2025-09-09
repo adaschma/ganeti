@@ -40,6 +40,7 @@ module Ganeti.Query.Export
 
 import Control.Monad (liftM)
 
+import Ganeti.Constants (backupDir)
 import Ganeti.Objects
 import Ganeti.Rpc
 import Ganeti.Query.Language
@@ -71,9 +72,9 @@ exportFields =
      FieldRuntime (curry fst), QffNormal)
   , (FieldDefinition "export_du" "ExpDUsage" QFTText "Use size on disk for export",
      FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
-  , (FieldDefinition "export_dtotal" "ExpDTotal" QFTText "Total storage space on /var/lib/ganiti/exports",
+  , (FieldDefinition "export_dtotal" "ExpDTotal" QFTText "Total storage space on " ++ backupDir,
      FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
-  , (FieldDefinition "export_dfree" "ExpDFree" QFTNumber "Available storage space on /var/lib/ganiti/exports",
+  , (FieldDefinition "export_dfree" "ExpDFree" QFTNumber "Available storage space on " ++ backupDir,
      FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
   ]
 
