@@ -72,9 +72,9 @@ exportFields =
      FieldRuntime (curry fst), QffNormal)
   , (FieldDefinition "export_du" "ExpDUsage" QFTText "Use size on disk for export",
      FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
-  , (FieldDefinition "export_dtotal" "ExpDTotal" QFTText "Total storage space on " ++ backupDir,
+  , (FieldDefinition "export_dtotal" "ExpDTotal" QFTUnit ("Total storage space on " ++ backupDir),
      FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
-  , (FieldDefinition "export_dfree" "ExpDFree" QFTNumber "Available storage space on " ++ backupDir,
+  , (FieldDefinition "export_dfree" "ExpDFree" QFTUnit ("Available storage space on " ++ backupDir),
      FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
   ]
 

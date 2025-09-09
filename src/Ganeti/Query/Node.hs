@@ -87,7 +87,7 @@ nodeLiveFieldsDefs =
   , ("mtotal", "MTotal", QFTUnit, "memory_total",
      "Total amount of memory of physical machine")
   , ("export_dtotal", "ExpDTotal", QFTUnit, "export_dtotal",
-     $"Total storage space on " ++ backupDir)
+     "Total storage space on " ++ backupDir)
   , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
      "Available storage space on " ++ backupDir)
   ]
