@@ -36,6 +36,7 @@ module Ganeti.Query.Node
   ( Runtime
   , fieldsMap
   , collectLiveData
+  , nodeLiveRpcCall
   ) where
 
 import Data.List
