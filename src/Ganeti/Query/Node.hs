@@ -294,7 +294,7 @@ rpcResultNodeBroken node = (node, Left (RpcResultError "Broken configuration"))
 
 -- | Storage-related query fields
 storageFields :: [String]
-storageFields = ["dtotal", "dfree", "spfree", "sptotal"]
+storageFields = ["dtotal", "dfree", "spfree", "sptotal", "export_dtotal", "export_dfree"]
 
 -- | Hypervisor-related query fields
 hypervisorFields :: [String]
