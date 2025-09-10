@@ -91,6 +91,8 @@ nodeLiveFieldsDefs =
      "Total storage space on " ++ exportDir)
   , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
      "Available storage space on " ++ exportDir)
+  , ("export_debug", "ExpDbug", QFTText, "export_dbug",
+     "Debug " ++ exportDir)
   ]
 
 -- | Helper function to extract an attribute from a maybe StorageType
@@ -159,14 +161,16 @@ nodeLiveFieldExtract "mnode" res =
 nodeLiveFieldExtract "mtotal" res =
   jsonHead (rpcResNodeInfoHvInfo res) hvInfoMemoryTotal
 nodeLiveFieldExtract "export_dtotal" res =
-  getStorageInfoName (getStorageInfoForExports (rpcResNodeInfoStorageInfo res))
+  getAttrFromStorageInfo storageInfoStorageSize (getStorageInfoForExports (rpcResNodeInfoStorageInfo res))
 nodeLiveFieldExtract "export_dfree" res =
   getAttrFromStorageInfo storageInfoStorageFree (getStorageInfoForExports
       (rpcResNodeInfoStorageInfo res))
+nodeLiveFieldExtract "export_dbug" res =
+  getStorageInfoName (rpcResNodeInfoStorageInfo res)
 nodeLiveFieldExtract _ _ = J.JSNull
 
-getStorageInfoName :: Maybe StorageInfo -> J.JSValue
-getStorageInfoName = getAttrFromStorageInfo (\n -> Just $ J.toJSString $ storageInfoName n)
+getStorageInfoName :: [StorageInfo] -> J.JSValue
+getStorageInfoName n = Just $ J.toJSString $ unwords $ map storageInfoName n
 
 -- | Helper for extracting field from RPC result.
 nodeLiveRpcCall :: FieldName -> Runtime -> Node -> ResultEntry
