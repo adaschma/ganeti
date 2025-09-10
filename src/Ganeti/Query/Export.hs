@@ -74,9 +74,9 @@ exportFields =
   , (FieldDefinition "export_du" "ExpDUsage" QFTText "Use size on disk for export",
      FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
   , (FieldDefinition "export_dtotal" "ExpDTotal" QFTUnit ("Total storage space on " ++ backupDir),
-     FieldRuntime (\r n -> rsNormal $ nodeLiveRpcCall "export_dtotal" r n), QffHostname)
+     FieldRuntime (\r n -> nodeLiveRpcCall "export_dtotal" r n), QffHostname)
   , (FieldDefinition "export_dfree" "ExpDFree" QFTUnit ("Available storage space on " ++ backupDir),
-     FieldRuntime (\r n -> rsNormal $ nodeLiveRpcCall "export_dfree" r n), QffHostname)
+     FieldRuntime (\r n -> nodeLiveRpcCall "export_dfree" r n), QffHostname)
   ]
 
 -- | The node fields map.
