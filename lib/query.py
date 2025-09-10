@@ -2710,6 +2710,9 @@ def _BuildExportFields():
     (_MakeField("export_dfree", "ExpDFree", QFT_UNIT,
                 f"Available storage space on {constants.EXPORT_DIR}"),
      None, 0, lambda _, __: 3),
+    (_MakeField("export_dbug", "ExpDBug", QFT_Text,
+                f"Available storage space on {constants.EXPORT_DIR}"),
+     None, 0, lambda _, __: 3),
     ]
 
   return _PrepareFieldList(fields, [])
