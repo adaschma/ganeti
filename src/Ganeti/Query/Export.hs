@@ -46,6 +46,7 @@ import Ganeti.Rpc
 import Ganeti.Query.Language
 import Ganeti.Query.Common
 import Ganeti.Query.Types
+import Ganeti.Query.Node (nodeLiveRpcCall)
 
 -- | The parsed result of the ExportList. This is a bit tricky, in
 -- that we already do parsing of the results in the RPC calls, so the
@@ -73,9 +74,9 @@ exportFields =
   , (FieldDefinition "export_du" "ExpDUsage" QFTText "Use size on disk for export",
      FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
   , (FieldDefinition "export_dtotal" "ExpDTotal" QFTUnit ("Total storage space on " ++ backupDir),
-     FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
+     FieldRuntime (\r n -> rsNormal $ nodeLiveRpcCall "export_dtotal" r n), QffHostname)
   , (FieldDefinition "export_dfree" "ExpDFree" QFTUnit ("Available storage space on " ++ backupDir),
-     FieldRuntime (\_ n -> rsNormal $ "hallo"), QffHostname)
+     FieldRuntime (\r n -> rsNormal $ nodeLiveRpcCall "export_dfree" r n), QffHostname)
   ]
 
 -- | The node fields map.
