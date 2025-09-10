@@ -40,13 +40,12 @@ module Ganeti.Query.Export
 
 import Control.Monad (liftM)
 
-import Ganeti.Constants (backupDir)
+import Ganeti.Constants (exportDir)
 import Ganeti.Objects
 import Ganeti.Rpc
 import Ganeti.Query.Language
 import Ganeti.Query.Common
 import Ganeti.Query.Types
-import Ganeti.Query.Node (nodeLiveRpcCall)
 
 -- | The parsed result of the ExportList. This is a bit tricky, in
 -- that we already do parsing of the results in the RPC calls, so the
@@ -73,10 +72,10 @@ exportFields =
      FieldRuntime (curry fst), QffNormal)
   , (FieldDefinition "export_du" "ExpDUsage" QFTText "Use size on disk for export",
      FieldRuntime (\_ n -> rsNormal $ nodeName n), QffHostname)
-  , (FieldDefinition "export_dtotal" "ExpDTotal" QFTUnit ("Total storage space on " ++ backupDir),
-     FieldRuntime (\r n -> nodeLiveRpcCall "export_dtotal" r n), QffHostname)
-  , (FieldDefinition "export_dfree" "ExpDFree" QFTUnit ("Available storage space on " ++ backupDir),
-     FieldRuntime (\r n -> nodeLiveRpcCall "export_dfree" r n), QffHostname)
+  -- , (FieldDefinition "export_dtotal" "ExpDTotal" QFTUnit ("Total storage space on " ++ exportDir),
+  --    FieldRuntime (\r n -> Node.nodeLiveRpcCall "export_dtotal" r n), QffHostname)
+  -- , (FieldDefinition "export_dfree" "ExpDFree" QFTUnit ("Available storage space on " ++ exportDir),
+  --    FieldRuntime (\r n -> Node.nodeLiveRpcCall "export_dfree" r n), QffHostname)
   ]
 
 -- | The node fields map.

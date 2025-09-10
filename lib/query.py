@@ -2705,10 +2705,10 @@ def _BuildExportFields():
                 "Use size on disk for export"),
      None, 0, _GetExportName),
     (_MakeField("export_dtotal", "ExpDTotal", QFT_UNIT,
-                f"Total storage space on {constants.BACKUP_DIR}"),
+                f"Total storage space on {constants.EXPORT_DIR}"),
      None, 0, lambda _, __: 2),
     (_MakeField("export_dfree", "ExpDFree", QFT_UNIT,
-                f"Available storage space on {constants.BACKUP_DIR}"),
+                f"Available storage space on {constants.EXPORT_DIR}"),
      None, 0, lambda _, __: 3),
     ]
 
