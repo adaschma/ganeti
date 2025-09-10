@@ -91,7 +91,7 @@ nodeLiveFieldsDefs =
      "Total storage space on " ++ exportDir)
   , ("export_dfree", "ExpDFree", QFTUnit, "storage_free",
      "Available storage space on " ++ exportDir)
-  , ("export_debug", "ExpDbug", QFTText, "export_dbug",
+  , ("export_debug", "ExpDbug", QFTText, "export_debug",
      "Debug " ++ exportDir)
   ]
 
@@ -170,7 +170,7 @@ nodeLiveFieldExtract "export_dbug" res =
 nodeLiveFieldExtract _ _ = J.JSNull
 
 getStorageInfoName :: [StorageInfo] -> J.JSValue
-getStorageInfoName n = J.JSString $ J.toJSString $ unwords $ map storageInfoName n
+getStorageInfoName n = J.JSString $ J.toJSString "hallo"  -- $ unwords $ map storageInfoName n
 
 -- | Helper for extracting field from RPC result.
 nodeLiveRpcCall :: FieldName -> Runtime -> Node -> ResultEntry
