@@ -73,7 +73,7 @@ getClusterStorageUnitRaws cfg =
 foldSUs :: [(StorageType, Maybe StorageKey)] -> [StorageUnitRaw]
 foldSUs = foldr ff []
   where ff (st, Just sk) acc = SURaw st sk : acc
-        ff (st, Nothing) acc = SURaw st StorageFile : acc
+        ff (st, Nothing) acc = SURaw st "StorageFile" : acc
 
 -- | Gets the value of the 'exclusive storage' flag of the node
 getExclusiveStorage :: ConfigData -> Node -> Maybe Bool
