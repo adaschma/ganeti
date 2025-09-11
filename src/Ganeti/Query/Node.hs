@@ -165,7 +165,7 @@ nodeLiveFieldExtract "export_dtotal" res =
 nodeLiveFieldExtract "export_dfree" res =
   getAttrFromStorageInfo storageInfoStorageFree (getStorageInfoForExports
       (rpcResNodeInfoStorageInfo res))
-nodeLiveFieldExtract "export_dbug" res =
+nodeLiveFieldExtract "export_debug" res =
   getStorageInfoName (rpcResNodeInfoStorageInfo res)
 nodeLiveFieldExtract _ _ = J.JSNull
 
