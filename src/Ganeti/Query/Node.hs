@@ -170,7 +170,7 @@ nodeLiveFieldExtract "export_debug" res =
 nodeLiveFieldExtract _ _ = J.JSNull
 
 getStorageInfoName :: [StorageInfo] -> J.JSValue
-getStorageInfoName n = J.JSString $ J.toJSString "hallo"  -- $ unwords $ map storageInfoName n
+getStorageInfoName n = J.JSString $ J.toJSString $ unwords $ map storageInfoName n
 
 -- | Helper for extracting field from RPC result.
 nodeLiveRpcCall :: FieldName -> Runtime -> Node -> ResultEntry
